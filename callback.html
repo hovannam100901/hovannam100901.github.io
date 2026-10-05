@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Callback</title></head>
+<body>
+<h2>Authorization code:</h2>
+<textarea id="c" rows="4" cols="80"></textarea>
+<p id="e" style="color:red"></p>
+<script>
+  const p = new URLSearchParams(location.search);
+  document.getElementById('c').value = p.get('code') || '';
+  if (p.get('error')) document.getElementById('e').textContent =
+    p.get('error') + ': ' + (p.get('error_description') || '');
+</script>
+</body></html>
